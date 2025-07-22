@@ -112,7 +112,7 @@
                         <p class="text-[16px] text-slate-600">
                           {{ $post->excerpt }}
                         </p>
-                        <a href="{{ route('posts.show') }}"
+                        <a href="{{ route('posts.show',['post'=> $post->slug]) }}"
                             class="flex items-center py-5 px-7 font-semibold bg-slate-900 transition text-slate-50 rounded-full">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="w-6 h-6 mr-2">
