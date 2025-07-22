@@ -11,4 +11,8 @@ class Post extends Model
     {
         return 'slug'; // Use 'slug' instead of 'id' for route model binding
     }
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
