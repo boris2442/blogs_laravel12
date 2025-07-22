@@ -1,5 +1,5 @@
 @extends('layouts.admin.layout-admin')
-@section('title', 'Accueil du blog')
+@section('title',  $post->title ?? 'Article')
 @section('content')
 
 {{-- Conteneur global --}}
@@ -96,8 +96,10 @@
                     </ul>
                     <p class="text-[16px] text-slate-600">
                         {!!nl2br(e($post->content)) !!}
+                        {{-- {{$post->content}} --}}
                     </p>
-                    <time datetime={{ $post->created_at }}>{{$post->created_at}}</time>
+                    <time datetime={{ $post->created_at }}>{{$post->created_at->format('d/m/Y H:i:s')}}</time>
+                    {{-- @dump($post->created_at) --}}
                 </div>
             </article>
             {{-- @endforeach --}}
@@ -106,8 +108,6 @@
         </div>
     </main>
 </div>
-{{-- Footer --}}
-<footer class="mt-16 text-center text-slate-500">
-    <p>&copy; {{ date('Y') }} Mon Blog. Tous droits réservés.</p>
-</footer>
+
+
 @endsection

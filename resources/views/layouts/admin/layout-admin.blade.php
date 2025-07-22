@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{-- <title>{{ config('app.name') }}</title> --}}
     <title>
-        {{ @yield('title')}}
+        @yield('title')
 
     </title>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
@@ -19,6 +19,11 @@
 <body class="antialiased pt-10 pb-16 md:pb-32">
     {{-- Conteneur global --}}
     @yield('content')
+
+
+    {{-- Footer --}}
+    @include('components.footer')
+    {{-- EndFooter --}}
 
 </body>
 
