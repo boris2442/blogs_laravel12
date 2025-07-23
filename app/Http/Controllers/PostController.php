@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
+use Illuminate\View\View as ViewView;
 
 class PostController extends Controller
 {
@@ -20,7 +22,16 @@ class PostController extends Controller
     {
         return view('posts.index', [
 
-            'posts' => Post::where('category_id', $category->id)->latest()->paginate(10),
+            'posts' => Post::where('tag', $category->id)->latest()->paginate(10),
+            // 'currentCategory' => $category // Pass the current
+        ]);
+    }
+
+    public function postsByTag(Tag $tag)
+    {
+        return view('posts.index', [
+
+            'posts' => Post::whereRelation('tags', 'tags.id', $tag->id)->latest()->paginate(10),
             // 'currentCategory' => $category // Pass the current
         ]);
     }

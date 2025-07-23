@@ -94,7 +94,7 @@
                     @if ($post->tags->count() > 0) {{-- Check if there are tags --}}
                     <ul class="flex flex-wrap gap-2">
                         @foreach ($post->tags as $tag)
-                        <li><a href="" class="px-3 py-1 bg-indigo-700 text-indigo-50 rounded-full text-sm">{{ $tag->name
+                        <li><a href="{{ route('posts.tag',['tag'=>$tag] ) }}" class="px-3 py-1 bg-indigo-700 text-indigo-50 rounded-full text-sm">{{ $tag->name
                                 }}</a>
                         </li>
                         @endforeach

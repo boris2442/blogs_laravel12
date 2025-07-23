@@ -7,4 +7,5 @@ use App\Http\Controllers\PostController;
 // });
 Route::get('/', [PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/category/{category}', [PostController::class, 'postsByCategory'])->name('posts.category');
+Route::get('/posts/tag/{tag}', [PostController::class, 'postsByTag'])->name('posts.tag');
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
