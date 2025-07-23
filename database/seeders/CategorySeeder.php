@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Str;
+use Illuminate\Support\Str;
 use App\Models\Category;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
