@@ -7,7 +7,11 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-  protected $middleware=['admin'];
+    protected $middleware = ['admin'];
+    // public function __construct()
+    // {
+    //   $this->middleware('admin');  
+    // }
     /**
      * Display a listing of the resource.
      */
