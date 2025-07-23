@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
@@ -24,4 +25,8 @@ Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show')
 //Route::get('/posts/{post}/comment', [PostController::class, 'comment'])->name('posts.comment');
 Route::post('/posts/{post}/comment', [PostController::class, 'comment'])->name('posts.comment');
 
-require __DIR__.'/auth.php';
+// Route::middleware(['auth', 'admin'])->group(function () {
+Route::resource('admin/posts', AdminController::class)->except('show')->names('admin.posts');
+
+// });
+require __DIR__ . '/auth.php';

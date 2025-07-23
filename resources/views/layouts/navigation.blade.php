@@ -16,6 +16,9 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <a class='items-center justify-center flex dark:text-white' href="{{ route('admin.posts.index') }}">Gestion des posts</a>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
