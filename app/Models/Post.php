@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Post extends Model
 {
     use \Illuminate\Database\Eloquent\Factories\HasFactory;
-    protected $with = ['category'];
+    protected $with = ['category','tags'];
     public function getRouteKeyName()
     {
         return 'slug'; // Use 'slug' instead of 'id' for route model binding
