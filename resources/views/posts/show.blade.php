@@ -1,5 +1,5 @@
 @extends('layouts.admin.layout-admin')
-@section('title',  $post->title ?? 'Article')
+@section('title', $post->title ?? 'Article')
 @section('content')
 
 {{-- Conteneur global --}}
@@ -105,6 +105,35 @@
             {{-- @endforeach --}}
 
             {{-- Fin du post --}}
+            @auth
+            <form action="{{ route('posts.comment', ['post'=>$post]) }}" method="post">
+                @csrf
+                <div class="space-y-5">
+                    <label for="content" class="block text-sm font-medium text-gray-700">Ajouter un commentaire</label>
+                    <textarea id="content" name="content" rows="4"
+                        class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
+                    <button type="submit"
+                        class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Envoyer
+                    </button>
+                </div>
+            </form>
+            @endauth
+            <div class="space-y-8">
+                @forelse($post->comments as $comment)
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <p class="text-sm text-gray-700">{{ $comment->content }}</p>
+                    <div class="mt-2 text-xs text-gray-500">
+                        Posté par {{ $comment->user->name }}  le
+                        {{ $comment->created_at->format('d/m/Y H:i:s') }}
+                    </div>
+                    <img src="{{ Gravatar::avatar($comment->user->email) }}" alt="image de {{ $comment->user->name }}"
+                        class="w-8 h-8 rounded-full mt-2  object-cover">
+                </div>
+                @empty
+                <p>Aucun commentaire pour cet article.</p>
+                @endforelse
+            </div>
         </div>
     </main>
 </div>

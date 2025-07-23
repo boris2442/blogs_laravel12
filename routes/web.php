@@ -21,4 +21,7 @@ Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/category/{category}', [PostController::class, 'postsByCategory'])->name('posts.category');
 Route::get('/posts/tag/{tag}', [PostController::class, 'postsByTag'])->name('posts.tag');
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+//Route::get('/posts/{post}/comment', [PostController::class, 'comment'])->name('posts.comment');
+Route::post('/posts/{post}/comment', [PostController::class, 'comment'])->name('posts.comment');
+
 require __DIR__.'/auth.php';
