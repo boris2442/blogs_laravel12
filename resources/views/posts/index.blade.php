@@ -14,10 +14,11 @@
             </svg>
         </a>
         {{-- Formulaire de recherche --}}
-        <form {{-- action="{{ route('index') }}" --}}
+        <form action="{{ route('posts.index') }}"
             class="pb-3 pr-2 flex items-center border-b border-b-slate-300 text-slate-300 focus-within:border-b-slate-900 focus-within:text-slate-900 transition">
-            <input id="search" value="" class="px-2 w-full outline-none leading-none placeholder-slate-400"
-                type="search" name="search" placeholder="Rechercher un article">
+            <input id="search" value="{{ request()->search }}"
+                class="px-2 w-full outline-none leading-none placeholder-slate-400" type="search" name="search"
+                placeholder="Rechercher un article">
             <button>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
                     <path fill-rule="evenodd"
@@ -78,7 +79,12 @@
     <main class="mt-10 md:mt-12 lg:mt-16">
         <div class="space-y-10 md:space-y-16">
             {{-- Début du post --}}
-            @foreach($posts as $post)
+            {{-- @foreach($posts as $post) --}}
+            @forelse($posts as $post)
+
+
+
+            {{-- @endforelse --}}
             <article class="flex flex-col lg:flex-row pb-10 md:pb-16 border-b">
                 <div class="lg:w-5/12">
                     <img class="w-full max-h-72 object-cover lg:max-h-none lg:h-full" src="{{ $post->thubbnail }}"
@@ -94,7 +100,8 @@
                     @if ($post->tags->count() > 0) {{-- Check if there are tags --}}
                     <ul class="flex flex-wrap gap-2">
                         @foreach ($post->tags as $tag)
-                        <li><a href="{{ route('posts.tag',['tag'=>$tag] ) }}" class="px-3 py-1 bg-indigo-700 text-indigo-50 rounded-full text-sm">{{ $tag->name
+                        <li><a href="{{ route('posts.tag',['tag'=>$tag] ) }}"
+                                class="px-3 py-1 bg-indigo-700 text-indigo-50 rounded-full text-sm">{{ $tag->name
                                 }}</a>
                         </li>
                         @endforeach
@@ -116,7 +123,10 @@
                     </a>
                 </div>
             </article>
-            @endforeach
+            @empty
+            <p class="text-center text-gray-500">Aucun article trouvé.</p>
+
+            @endforelse
             {{-- Pagination --}}
             <div class="mt-10">
                 {{ $posts->links() }}
