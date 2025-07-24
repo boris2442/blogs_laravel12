@@ -13,17 +13,16 @@ class AdminMiddlerare
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-  public function handle(Request $request, Closure $next): Response
-{
-    // Vérifie si l'utilisateur est connecté et est admin
-    $user = auth()->user();
+    public function handle(Request $request, Closure $next): Response
+    {
+        // Vérifie si l'utilisateur est connecté et est admin
+        $user = auth()->user();
 
-    if (!$user || !$user->isAdmin()) {
-        return redirect('/')
-            ->with('error', 'Vous n\'avez pas la permission d\'accéder à cette page.');
+        if (!$user || !$user->isAdmin()) {
+            return redirect('/')
+                ->with('error', 'Vous n\'avez pas la permission d\'accéder à cette page.');
+        }
+
+        return $next($request);
     }
-
-    return $next($request);
-}
-
 }
