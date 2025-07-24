@@ -26,7 +26,10 @@ Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show')
 Route::post('/posts/{post}/comment', [PostController::class, 'comment'])->name('posts.comment');
 
 // Route::middleware(['auth', 'admin'])->group(function () {
-Route::resource('admin/posts', AdminController::class)->except('show')->names('admin.posts')->middleware('admin');
+Route::resource('admin/posts', AdminController::class)->except('show')->names('admin.posts')
+// ->middleware('admin')
+;
+// Route::resource('admin/posts/create', AdminController::class)->name->('admin.posts.create');
 
 // });
 require __DIR__ . '/auth.php';

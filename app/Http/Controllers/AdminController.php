@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Models\Post;
+use App\Models\Tag;
 
 class AdminController extends Controller
 {
@@ -27,7 +29,9 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::orderBy('name')->get();
+        $tags=Tag::orderBy('name')->get();
+        return view('admin.posts.form', compact('categories', 'tags'));
     }
 
     /**
