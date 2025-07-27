@@ -1,143 +1,152 @@
 @extends('layouts.users.layout-user')
-@section('title', $post->title ?? 'Article')
+@section('title', 'Accueil du blog')
 @section('content')
-
-{{-- Conteneur global --}}
-<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    {{-- Header --}}
-    <header class="flex justify-between items-center space-x-5 text-slate-900">
-        {{-- Logo --}}
-        <a {{-- href="{{ route('index') }}" --}} href="{{ route('posts.index') }}">
+<div
+    class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 bg-[#FAF9F6] text-[#111827] dark:bg-[#1E2A38] dark:text-[#F4F4F5] min-h-screen transition-colors duration-300">
+    <header class="flex justify-between items-center py-6 space-x-5">
+        <a href="{{ route('posts.index') }}">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="w-8 h-8">
+                stroke="currentColor" class="w-8 h-8 text-[#1E2A38] dark:text-[#F4F4F5]">
                 <path stroke-linecap="round" stroke-linejoin="round"
                     d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
             </svg>
         </a>
-        {{-- Formulaire de recherche --}}
-        <form {{-- action="{{ route('index') }}" --}}
-            class="pb-3 pr-2 flex items-center border-b border-b-slate-300 text-slate-300 focus-within:border-b-slate-900 focus-within:text-slate-900 transition">
-            <input id="search" value="" class="px-2 w-full outline-none leading-none placeholder-slate-400"
+
+        <form action="{{ route('posts.index') }}"
+            class="flex items-center border-b border-[#9CA3AF] dark:border-[#F4F4F5] focus-within:border-[#3B82F6] w-full max-w-md">
+            <input id="search" value="{{ request()->search }}"
+                class="px-3 py-2 w-full bg-transparent text-[#111827] dark:text-[#F4F4F5] placeholder-[#9CA3AF] dark:placeholder-[#D1D5DB] focus:outline-none"
                 type="search" name="search" placeholder="Rechercher un article">
             <button>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                    class="w-5 h-5 text-[#1E2A38] dark:text-[#F4F4F5]">
                     <path fill-rule="evenodd"
                         d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
                         clip-rule="evenodd" />
                 </svg>
             </button>
         </form>
-        {{-- Navigation --}}
-        <nav x-data="{ open: false }" x-cloak class="relative">
-            <button @click="open = !open" @click.outside="if (open) open = false"
-                class="md:hidden w-8 h-8 flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-8 h-8">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
-                </svg>
-            </button>
-            <ul x-show="open" x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="transform opacity-0 scale-95"
-                x-transition:enter-end="transform opacity-100 scale-100"
-                x-transition:leave="transition ease-in duration-75"
-                x-transition:leave-start="transform opacity-100 scale-100"
-                x-transition:leave-end="transform opacity-0 scale-95"
-                class="md:hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-                tabindex="-1">
-                <li><a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Connexion</a></li>
-                <li>
-                    <a href=""
-                        class="flex items-center px-4 py-2 font-semibold text-sm text-indigo-700 hover:bg-gray-100">
-                        Inscription
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                            class="w-5 h-5 ml-1">
-                            <path fill-rule="evenodd"
-                                d="M2 10a.75.75 0 01.75-.75h12.59l-2.1-1.95a.75.75 0 111.02-1.1l3.5 3.25a.75.75 0 010 1.1l-3.5 3.25a.75.75 0 11-1.02-1.1l2.1-1.95H2.75A.75.75 0 012 10z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </a>
+
+        <nav class="hidden md:block">
+            <ul class="flex space-x-6 font-medium">
+                <li><a href="#"
+                        class="text-[#1E2A38] dark:text-[#F4F4F5] hover:text-[#3B82F6] dark:hover:text-[#10B981]">Connexion</a>
                 </li>
-            </ul>
-            <ul class="hidden md:flex space-x-12 font-semibold">
-                <li><a href="">Connexion</a></li>
-                <li>
-                    <a href="" class="flex items-center group text-indigo-700">
-                        Inscription
-                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke-width="1.5" stroke="currentColor"
-                            class="w-6 h-6 mx-1 group-hover:ml-2 group-hover:mr-0 transition-all">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-                        </svg>
-                    </a>
+                <li><a href="#"
+                        class="text-[#1E2A38] dark:text-[#F4F4F5] hover:text-[#3B82F6] dark:hover:text-[#10B981]">Inscription</a>
                 </li>
             </ul>
         </nav>
     </header>
 
-    <main class="mt-10 md:mt-12 lg:mt-16">
-        <div class="space-y-10 md:space-y-16">
-            {{-- Début du post --}}
-            {{-- @foreach($posts as $post) --}}
-            <article class="flex flex-col lg:flex-row pb-10 md:pb-16 border-b">
-                <div class="lg:w-5/12">
-                    <img class="w-full max-h-72 object-cover lg:max-h-none lg:h-full"
-                        src="{{ str_starts_with($post->thubbnail, 'http') ? $post->thumbnail : asset('storage/' . $post->thumbnail) }}"
-                        alt="Image de l'article {{ $post->title }}">
-                </div>
-                <div class="flex flex-col items-start mt-5 space-y-5 lg:w-7/12 lg:mt-0 lg:ml-12">
-                    <a href="" class="underline font-bold text-slate-900 text-lg">Catégorie</a>
-                    <h1 class="font-bold text-slate-900 text-3xl lg:text-5xl leading-tight">{{$post->title}}</h1>
-                    <ul class="flex flex-wrap gap-2">
-                        <li><a href="" class="px-3 py-1 bg-indigo-700 text-indigo-50 rounded-full text-sm">Tag 1</a>
-                        </li>
-                        <li><a href="" class="px-3 py-1 bg-indigo-700 text-indigo-50 rounded-full text-sm">Tag 2</a>
-                        </li>
-                    </ul>
-                    <p class="text-[16px] text-slate-600">
-                        {!!nl2br(e($post->content)) !!}
-                        {{-- {{$post->content}} --}}
-                    </p>
-                    <time datetime={{ $post->created_at }}>{{$post->created_at->format('d/m/Y H:i:s')}}</time>
-                    {{-- @dump($post->created_at) --}}
-                </div>
-            </article>
-            {{-- @endforeach --}}
+    <main class="mt-12 space-y-16">
+        {{-- @forelse($posts as $post) --}}
+        <article class="flex flex-col lg:flex-row gap-8 pb-14 border-b border-[#E5E7EB] dark:border-[#374151]">
+            <div class="lg:w-5/12">
+                <img class="w-full h-64 object-cover rounded-2xl"
+                    src="{{ str_starts_with($post->thubbnail, 'http') ? $post->thumbnail : asset('storage/' . $post->thumbnail) }}"
+                    alt="Image de l'article {{ $post->title }}">
+            </div>
+            <div class="flex flex-col justify-between lg:w-7/12 space-y-5">
+                @if($post->category)
+                <a href="{{ route('posts.category', ['category'=>$post->category]) }}"
+                    class="text-lg font-semibold text-[#1E2A38] dark:text-[#F4F4F5] underline">{{ $post->category->name
+                    }}</a>
+                @endif
+                <h2 class="text-3xl lg:text-5xl font-bold leading-tight text-[#1E2A38] dark:text-[#F4F4F5]">{{
+                    $post->title }}</h2>
+                @if ($post->tags->count() > 0)
+                <ul class="flex flex-wrap gap-2">
+                    @foreach ($post->tags as $tag)
+                    <li><a href="{{ route('posts.tag',['tag'=>$tag]) }}"
+                            class="px-3 py-1 bg-[#3B82F6] text-white rounded-full text-sm hover:bg-[#2563EB]">{{
+                            $tag->name }}</a></li>
+                    @endforeach
+                </ul>
+                @endif
+                <p class="text-base text-[#4B5563] dark:text-[#D1D5DB]">{{ $post->excerpt }}</p>
+                {{-- <a href="{{ route('posts.show',['post'=> $post->slug]) }}"
+                    class="inline-flex items-center gap-2 px-6 py-3 text-white font-semibold bg-[#1E2A38] hover:bg-[#3B82F6] dark:bg-[#10B981] dark:hover:bg-[#059669] rounded-full transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
+                    </svg>
+                    Lire l'article
+                </a> --}}
+                <p class="text-base text-[#4B5563] dark:text-[#D1D5DB]"> {!!nl2br(e($post->content)) !!}</p>
+            </div>
+        </article>
 
-            {{-- Fin du post --}}
+        {{-- Formulaire commentaire stylé --}}
+        <div class="mt-10">
             @auth
-            <form action="{{ route('posts.comment', ['post'=>$post]) }}" method="post">
+            {{-- <form action="{{ route('posts.comment', ['post'=>$post]) }}" method="post" class="space-y-4">
                 @csrf
-                <div class="space-y-5">
-                    <label for="content" class="block text-sm font-medium text-gray-700">Ajouter un commentaire</label>
-                    <textarea id="content" name="content" rows="4"
-                        class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
+                <label for="content" class="block text-sm font-medium text-[#1E2A38] dark:text-[#F4F4F5]">Ajouter un
+                    commentaire</label>
+                <textarea id="content" name="content" rows="3"
+                    class="w-full rounded-lg border border-[#D1D5DB] dark:border-[#4B5563] bg-white dark:bg-[#111827] text-[#1E2A38] dark:text-[#F4F4F5] placeholder-[#9CA3AF] dark:placeholder-[#6B7280] px-4 py-3 focus:ring-[#3B82F6] focus:border-[#3B82F6] resize-none"
+                    placeholder="Ajoutez un commentaire public..."></textarea>
+                <button type="submit"
+                    class="flex items-center gap-2 text-white bg-[#3B82F6] hover:bg-[#2563EB] dark:bg-[#10B981] dark:hover:bg-[#059669] px-4 py-2 rounded-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                    </svg>
+                    Envoyer
+                </button>
+            </form> --}}
+            <form class="w-full max-w-2xl mx-auto mt-8" action="{{ route('posts.comment', ['post'=>$post]) }}"
+                method="post">
+                @csrf
+                <div class="relative">
+                    <textarea name="content" id="content" rows="3"
+                        class="peer w-full resize-none rounded-xl bg-white dark:bg-[#1F2937] px-4 pt-4 pb-10 text-sm text-[#111827] dark:text-[#F4F4F5] placeholder-transparent border border-[#D1D5DB] dark:border-[#374151] focus:outline-none focus:ring-2 focus:ring-[#3B82F6] focus:border-[#3B82F6] transition-all duration-300 ease-in-out"
+                        placeholder="Ajouter un commentaire..."
+                        oninput="this.style.height='auto'; this.style.height = this.scrollHeight + 'px';">{{ old('content') }}</textarea>
+                    {{-- <label for="content"
+                        class="absolute left-4 top-2 text-xs text-[#9CA3AF] dark:text-[#D1D5DB] peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#6B7280] peer-placeholder-shown:dark:text-[#9CA3AF] transition-all duration-300 ease-in-out">
+                        Ajouter un commentaire
+                    </label> --}}
+                </div>
+
+                <div class="flex justify-end mt-4">
                     <button type="submit"
-                        class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        class="flex items-center gap-2 text-white bg-[#3B82F6] hover:bg-[#2563EB] dark:bg-[#10B981] dark:hover:bg-[#059669] px-5 py-2 rounded-full transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6-6m6 6l-6 6" />
+                        </svg>
                         Envoyer
                     </button>
                 </div>
             </form>
+
             @endauth
-            <div class="space-y-8">
+
+            <div class="space-y-8 mt-8">
                 @forelse($post->comments as $comment)
-                <div class="bg-gray-50 p-4 rounded-lg">
-                    <p class="text-sm text-gray-700">{{ $comment->content }}</p>
-                    <div class="mt-2 text-xs text-gray-500">
-                        Posté par {{ $comment->user->name }} le
-                        {{ $comment->created_at->format('d/m/Y H:i:s') }}
+                <div class="bg-[#F9FAFB] dark:bg-[#1F2937] p-4 rounded-lg relative">
+                    <p class="text-sm text-[#1E2A38] dark:text-[#F4F4F5]">{{ $comment->content }}</p>
+                    <div class="mt-2 text-xs text-[#6B7280] dark:text-[#9CA3AF] 
+                     ml-10" style="margin-left: 2rem; padding-left: 1rem; border-left: 2px solid #3B82F6; 
+                        padding-top: 0.5rem; padding-bottom: 0.5rem; margin-top: 0.5rem; margin-bottom: 0.5rem;
+                    ">
+                        Posté par {{ $comment->user->name }} le {{ $comment->created_at->format('d/m/Y H:i:s') }}
                     </div>
                     <img src="{{ Gravatar::avatar($comment->user->email) }}" alt="image de {{ $comment->user->name }}"
-                        class="w-8 h-8 rounded-full mt-2  object-cover">
+                        class="w-8 h-8 rounded-full mt-2 object-cover absolute top-10 left-2">
                 </div>
                 @empty
-                <p>Aucun commentaire pour cet article.</p>
+                <p class="text-center text-[#9CA3AF] dark:text-[#D1D5DB]">Aucun commentaire pour cet article.</p>
+
                 @endforelse
             </div>
         </div>
+        {{-- @empty
+        <p class="text-center text-[#9CA3AF] dark:text-[#D1D5DB]">Aucun article trouvé.</p>
+        @endforelse --}}
     </main>
 </div>
-
-
 @endsection

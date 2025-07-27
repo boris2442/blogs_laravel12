@@ -67,7 +67,7 @@
                     @endif
                     <p class="text-base text-[#4B5563] dark:text-[#D1D5DB]">{{ $post->excerpt }}</p>
                     <a href="{{ route('posts.show',['post'=> $post->slug]) }}"
-                        class="flex items-center gap-2 px-6 py-3 text-white font-semibold bg-[#1E2A38] hover:bg-[#3B82F6] dark:bg-[#10B981] dark:hover:bg-[#059669] rounded-full transition max-w-[200px]">
+                        class="flex items-center gap-2 px-4 py-1 text-white font-semibold bg-[#1E2A38] hover:bg-[#3B82F6] dark:bg-[#10B981] dark:hover:bg-[#059669] rounded-full transition max-w-[130px]">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-5 h-5">
                             <path stroke-linecap="round" stroke-linejoin="round"
