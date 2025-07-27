@@ -32,8 +32,12 @@ Route::post('/posts/{post}/comment', [PostController::class, 'comment'])->name('
 // ;
 // Route::middleware(['auth', 'role:admin'])->group(function () {
 Route::resource('/admin/posts', AdminController::class)->except('show')->names('admin.posts')
+
 // ->middleware(['auth', 'admin',])
 ;
+Route::get('/admin/posts/{post}', [AdminController::class, 'show'])->name('admin.posts.show')
+    // ->middleware('admin')
+    ;
 // });
 
 

@@ -148,4 +148,8 @@ class AdminController extends Controller
         // Redirige vers la liste des posts avec un message de succès
         return redirect()->route('admin.posts.index')->with('success', 'Post deleted successfully.');
     }
+    public function show(Post $post)
+    {
+        return view('admin.posts.show', compact('post'));
+    }
 }

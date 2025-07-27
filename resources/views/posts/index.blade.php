@@ -29,14 +29,33 @@
 
         <nav class="hidden md:block">
             <ul class="flex space-x-6 font-medium">
-                <li><a href="#"
-                        class="text-[#1E2A38] dark:text-[#F4F4F5] hover:text-[#3B82F6] dark:hover:text-[#10B981]">Connexion</a>
+                @auth
+                <li>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit"
+                            class="text-[#1E2A38] dark:text-[#F4F4F5] hover:text-red-500 dark:hover:text-red-400">
+                            Déconnexion
+                        </button>
+                    </form>
                 </li>
-                <li><a href="#"
-                        class="text-[#1E2A38] dark:text-[#F4F4F5] hover:text-[#3B82F6] dark:hover:text-[#10B981]">Inscription</a>
+                @else
+                <li>
+                    <a href="{{ route('login') }}"
+                        class="text-[#1E2A38] dark:text-[#F4F4F5] hover:text-[#3B82F6] dark:hover:text-[#10B981]">
+                        Connexion
+                    </a>
                 </li>
+                <li>
+                    <a href="{{ route('register') }}"
+                        class="text-[#1E2A38] dark:text-[#F4F4F5] hover:text-[#3B82F6] dark:hover:text-[#10B981]">
+                        Inscription
+                    </a>
+                </li>
+                @endauth
             </ul>
         </nav>
+
     </header>
 
     <main class="mt-12">
@@ -73,7 +92,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
                         </svg>
-                      Voir plus
+                        Voir plus
                     </a>
                 </div>
             </article>

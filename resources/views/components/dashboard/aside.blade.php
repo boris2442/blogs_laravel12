@@ -28,7 +28,7 @@
         <a
          {{-- href="{{ route('students.index') }}" --}}
             class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-600 hover:text-white text-gray-700 dark:text-gray-200">
-            <i class="fas fa-user-graduate mr-2"></i> Étudiants
+            <i class="fas fa-user-graduate mr-2"></i> Posts
         </a>
         {{-- @endif --}}
         {{-- @auth --}}
