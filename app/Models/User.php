@@ -44,7 +44,7 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
-            'role'=>Role::class, // Cast the role attribute to the Role enum
+            'role' => Role::class, // Cast the role attribute to the Role enum
         ];
     }
     // app/Models/User.php
@@ -54,7 +54,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
-    public function isAdmin(){
-        return $this->role === Role::Admin->value;
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
     }
 }

@@ -8,6 +8,16 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Post extends Model
 {
     use \Illuminate\Database\Eloquent\Factories\HasFactory;
+    protected $fillable = [
+        'title',
+        'slug',
+        'excerpt',
+        'content',
+        'thumbnail',
+        'category_id',
+        'user_id',
+        'tags_ids', // This is used to store the IDs of the tags associated with the
+    ];
     protected $with = ['category','tags'];
     public function getRouteKeyName()
     {

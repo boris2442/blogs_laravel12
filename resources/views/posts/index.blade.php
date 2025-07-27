@@ -37,7 +37,8 @@
                         d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
                 </svg>
             </button>
-            <ul x-show="open" x-transition:enter="transition ease-out duration-200"
+
+            {{-- <ul x-show="open" x-transition:enter="transition ease-out duration-200"
                 x-transition:enter-start="transform opacity-0 scale-95"
                 x-transition:enter-end="transform opacity-100 scale-100"
                 x-transition:leave="transition ease-in duration-75"
@@ -58,8 +59,9 @@
                         </svg>
                     </a>
                 </li>
-            </ul>
-            <ul class="hidden md:flex space-x-12 font-semibold">
+            </ul> --}}
+
+            {{-- <ul class="hidden md:flex space-x-12 font-semibold">
                 <li><a href="">Connexion</a></li>
                 <li>
                     <a href="" class="flex items-center group text-indigo-700">
@@ -72,7 +74,7 @@
                         </svg>
                     </a>
                 </li>
-            </ul>
+            </ul> --}}
         </nav>
     </header>
 
@@ -87,8 +89,9 @@
             {{-- @endforelse --}}
             <article class="flex flex-col lg:flex-row pb-10 md:pb-16 border-b">
                 <div class="lg:w-5/12">
-                    <img class="w-full max-h-72 object-cover lg:max-h-none lg:h-full" src="{{ $post->thubbnail }}"
-                        alt="Image de l'article">
+                    <img class="w-full max-h-72 object-cover lg:max-h-none lg:h-full"
+                        src="{{ str_starts_with($post->thubbnail, 'http') ? $post->thumbnail : asset('storage/' . $post->thumbnail) }}"
+                        alt="Image de l'article {{ $post->title }}">
                 </div>
                 <div class="flex flex-col items-start mt-5 space-y-5 lg:w-7/12 lg:mt-0 lg:ml-12">
                     @if($post->category)
@@ -128,9 +131,9 @@
 
             @endforelse
             {{-- Pagination --}}
-            <div class="mt-10">
+            {{-- <div class="mt-10">
                 {{ $posts->links() }}
-            </div>
+            </div> --}}
             {{-- Fin du post --}}
         </div>
     </main>

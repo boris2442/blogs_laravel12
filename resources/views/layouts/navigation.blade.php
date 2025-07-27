@@ -16,12 +16,36 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
-                @if(Auth::user()->isAdmin())
+                {{-- @auth
+                @if(Auth::user()->role == 'admin')
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <a class='items-center justify-center flex dark:text-white'
                         href="{{ route('admin.posts.index') }}">Gestion des posts</a>
                 </div>
                 @endif
+                @endauth --}}
+                {{-- {{ Auth::user()->role }} --}}
+                {{-- @auth --}}
+                {{-- <div>
+                    Connecté en tant que : {{ Auth::user()->role }}
+                </div> --}}
+
+                {{-- @if(Auth::user()->role = 'admin') --}}
+                {{-- {{ Auth::user()->role ==='admin': 'vraie' ? 'faux'}} --}}
+
+              @if(auth()->user()->role->value === 'admin') 
+
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <a href="{{ route('admin.posts.index') }}"
+                        class='items-center justify-center flex dark:text-white'>Gestion des posts</a>
+                </div>
+                {{-- @endif --}}
+                {{-- @endauth --}}
+                @endif
+               
+
+
             </div>
 
             <!-- Settings Dropdown -->

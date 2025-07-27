@@ -82,8 +82,9 @@
             {{-- @foreach($posts as $post) --}}
             <article class="flex flex-col lg:flex-row pb-10 md:pb-16 border-b">
                 <div class="lg:w-5/12">
-                    <img class="w-full max-h-72 object-cover lg:max-h-none lg:h-full" src="{{ $post->thubbnail }}"
-                        alt="Image de l'article">
+                    <img class="w-full max-h-72 object-cover lg:max-h-none lg:h-full"
+                        src="{{ str_starts_with($post->thubbnail, 'http') ? $post->thumbnail : asset('storage/' . $post->thumbnail) }}"
+                        alt="Image de l'article {{ $post->title }}">
                 </div>
                 <div class="flex flex-col items-start mt-5 space-y-5 lg:w-7/12 lg:mt-0 lg:ml-12">
                     <a href="" class="underline font-bold text-slate-900 text-lg">Catégorie</a>
@@ -124,7 +125,7 @@
                 <div class="bg-gray-50 p-4 rounded-lg">
                     <p class="text-sm text-gray-700">{{ $comment->content }}</p>
                     <div class="mt-2 text-xs text-gray-500">
-                        Posté par {{ $comment->user->name }}  le
+                        Posté par {{ $comment->user->name }} le
                         {{ $comment->created_at->format('d/m/Y H:i:s') }}
                     </div>
                     <img src="{{ Gravatar::avatar($comment->user->email) }}" alt="image de {{ $comment->user->name }}"

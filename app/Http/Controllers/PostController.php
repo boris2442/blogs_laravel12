@@ -14,7 +14,7 @@ use Illuminate\View\View as ViewView;
 use App\Http\Controllers\Controller; // ✅ assure-toi que ceci est bien présent
 class PostController extends Controller
 {
-   protected $middleware = [
+    protected $middleware = [
         'auth' => ['only' => ['comment']],
     ];
     public function index(Request $request)
@@ -28,19 +28,31 @@ class PostController extends Controller
                 ->paginate(10);
         } else {
             // Otherwise, fetch all posts with pagination
-            $posts = Post::latest()->paginate(10);
+            $posts = Post::latest()->get()
+                // ->paginate(10)
+            ;
         }
         // Return the view with posts
         return view('posts.index', compact('posts'));
     }
 
 
+    // public function postsByCategory(Category $category)
+    // {
+    //     return view('posts.index', [
+
+    //         'posts' => Post::where('tag', $category->id)->latest()->paginate(10),
+    //         // 'currentCategory' => $category // Pass the current
+    //     ]);
+    // }
     public function postsByCategory(Category $category)
     {
         return view('posts.index', [
-
-            'posts' => Post::where('tag', $category->id)->latest()->paginate(10),
-            // 'currentCategory' => $category // Pass the current
+            'posts' => Post::where('category_id', $category->id)
+                ->latest()
+            // ->paginate(10)
+            ,
+            'currentCategory' => $category
         ]);
     }
 
@@ -48,7 +60,9 @@ class PostController extends Controller
     {
         return view('posts.index', [
 
-            'posts' => Post::whereRelation('tags', 'tags.id', $tag->id)->latest()->paginate(10),
+            'posts' => Post::whereRelation('tags', 'tags.id', $tag->id)->latest()->get()
+            // ->paginate(10)
+            ,
             // 'currentCategory' => $category // Pass the current
         ]);
     }
@@ -59,7 +73,7 @@ class PostController extends Controller
     public function comment(Request $request, Post $post)
     {
         $request->validate([
-               'content' => 'required|string|between:1,1000',
+            'content' => 'required|string|between:1,1000',
         ]);
 
         Comment::create([
