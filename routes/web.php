@@ -5,7 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\AdminMiddleware;
-
+use App\Http\Controllers\LegalController;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -33,13 +33,16 @@ Route::post('/posts/{post}/comment', [PostController::class, 'comment'])->name('
 // Route::middleware(['auth', 'role:admin'])->group(function () {
 Route::resource('/admin/posts', AdminController::class)->except('show')->names('admin.posts')
 
-// ->middleware(['auth', 'admin',])
+    // ->middleware(['auth', 'admin',])
 ;
 Route::get('/admin/posts/{post}', [AdminController::class, 'show'])->name('admin.posts.show')
     // ->middleware('admin')
-    ;
+;
 // });
-
+Route::get('/cgu', [LegalController::class, 'cgu'])->name('cgu');
+Route::get('/privacy', [LegalController::class, 'privacy'])->name('privacy');
+Route::get('/about', [LegalController::class, 'about'])->name('about');
+Route::get('/contact', [LegalController::class, 'contact'])->name('contact');
 
 // });
 require __DIR__ . '/auth.php';

@@ -27,16 +27,7 @@
             </button>
         </form>
 
-        <nav class="hidden md:block">
-            <ul class="flex space-x-6 font-medium">
-                <li><a href="#"
-                        class="text-[#1E2A38] dark:text-[#F4F4F5] hover:text-[#3B82F6] dark:hover:text-[#10B981]">Connexion</a>
-                </li>
-                <li><a href="#"
-                        class="text-[#1E2A38] dark:text-[#F4F4F5] hover:text-[#3B82F6] dark:hover:text-[#10B981]">Inscription</a>
-                </li>
-            </ul>
-        </nav>
+      @include('components.dashboard.navigation')
     </header>
 
     <main class="mt-12 space-y-16">
@@ -81,7 +72,7 @@
         {{-- Formulaire commentaire stylé --}}
         <div class="mt-10">
             @auth
-         
+
             <form class="w-full max-w-2xl mx-auto mt-8" action="{{ route('posts.comment', ['post'=>$post]) }}"
                 method="post">
                 @csrf
