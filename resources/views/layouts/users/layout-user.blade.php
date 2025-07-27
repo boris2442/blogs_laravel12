@@ -16,7 +16,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="antialiased pt-10 pb-16 md:pb-32">
+<body class="antialiased pt-10 pb-16 md:pb-32  bg-[#FAF9F6] text-[#111827] dark:bg-[#1E2A38] dark:text-[#F4F4F5]">
     {{-- Conteneur global --}}
     @yield('content')
 
