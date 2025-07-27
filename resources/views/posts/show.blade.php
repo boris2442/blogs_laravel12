@@ -1,4 +1,4 @@
-@extends('layouts.admin.layout-admin')
+@extends('layouts.users.layout-user')
 @section('title', $post->title ?? 'Article')
 @section('content')
 

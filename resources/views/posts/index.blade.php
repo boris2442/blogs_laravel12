@@ -1,4 +1,4 @@
-@extends('layouts.admin.layout-admin')
+@extends('layouts.users.layout-user')
 @section('title', 'Accueil du blog')
 @section('content')
 {{-- Conteneur global --}}

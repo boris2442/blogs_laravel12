@@ -31,7 +31,9 @@ Route::post('/posts/{post}/comment', [PostController::class, 'comment'])->name('
 // ->middleware('admin')
 // ;
 // Route::middleware(['auth', 'role:admin'])->group(function () {
-Route::resource('/admin/posts', AdminController::class)->except('show')->names('admin.posts')->middleware(['auth', 'admin',]);
+Route::resource('/admin/posts', AdminController::class)->except('show')->names('admin.posts')
+// ->middleware(['auth', 'admin',])
+;
 // });
 
 
