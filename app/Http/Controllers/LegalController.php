@@ -18,7 +18,7 @@ class LegalController extends Controller
 
     public function about()
     {
-        return view('pages.about');
+        return view('footer.about');
     }
 
     public function contact()

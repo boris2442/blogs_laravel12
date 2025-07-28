@@ -19,7 +19,7 @@
                 <li><a href="/" class="hover:text-blue-500">Accueil</a></li>
                 <li><a href="{{ route('posts.index') }}" class="hover:text-blue-500">Articles</a></li>
                 <li><a href="{{ route('contact') }}" class="hover:text-blue-500">Contact</a></li>
-                {{-- <li><a href="/about" class="hover:text-blue-500">À propos</a></li> --}}
+                <li><a href="{{ route('about') }}" class="hover:text-blue-500">À propos</a></li>
             </ul>
         </div>
 

@@ -46,9 +46,12 @@
         <div class="bg-[#E0E7FF] dark:bg-[#2A3A4D] rounded-md p-6 text-[#1E2A38] dark:text-[#F4F4F5] shadow-inner">
             <h2 class="text-2xl font-semibold mb-4">Nos coordonnées</h2>
             <p class="mb-3"><strong>Email :</strong> <a href="mailto:boristech99@gmail.com"
-                    class="text-indigo-600 hover:underline">boristech99@gmail.com</a></p>
-            <p class="mb-3"><strong>Téléphone :</strong> <a href="tel:+237699000000"
-                    class="text-indigo-600 hover:underline">(+237) 6 99 00 00 00</a></p>
+                    class="text-blue-100 hover:underline">boristech99@gmail.com</a></p>
+            <p class="mb-3"><strong>Téléphone :</strong> <a href="https://wa.me/237679135177"
+                    class="text-blue-100  hover:underline">
+                    (+237) 6 79 13 51 77 </a>
+                / <a href="https://wa.me/237694223503" class="text-blue-100 hover:underline"> 694 22 35 03
+                </a></p>
             <p class="mb-6"><strong>Adresse :</strong> Bafoussam-Cameroun; immeuble ancien bureau des transports </p>
             <h3 class="text-xl font-semibold mb-2">Horaires d'ouverture</h3>
             <ul class="list-disc list-inside space-y-1">
