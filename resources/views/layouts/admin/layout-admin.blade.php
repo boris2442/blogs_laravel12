@@ -20,7 +20,7 @@
     @endif
 </head>
 
-<body>
+<body class='antialiased bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100'>
 
 
 
@@ -37,7 +37,7 @@
 
 
 
-    <div class="flex h-screen bg-gray-100 dark:bg-gray-900">
+    <div class="flex h-screen bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
         @include('components.dashboard.aside')
         <div class="flex-1 flex flex-col">
             @include('components.dashboard.header')

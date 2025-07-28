@@ -3,7 +3,7 @@
 @section('title', 'Politique de Confidentialité boris tech')
 
 @section('content')
-<section class="max-w-4xl mx-auto px-4 py-12 text-gray-800 dark:text-gray-100">
+<section class="max-w-4xl mx-auto px-4 py-12 antialiased bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
     <h1 class="text-3xl font-bold mb-6">Politique de Confidentialité</h1>
     <p class="text-sm text-gray-500 dark:text-gray-400 mb-10"> Dernière mise à jour : {{
         \Carbon\Carbon::now()->subDay()->format('d F Y') }}</p>

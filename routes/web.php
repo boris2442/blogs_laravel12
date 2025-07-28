@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ContactAdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AdminController;
@@ -7,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\LegalController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\admin\UserAdminController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -50,4 +52,12 @@ Route::post('/contact/store', [ContactController::class, 'store'])->name('contac
 // Route::post('/contact/send', [ContactController::class, 'store'])->name('contact
 
 // });
+
+Route::get('/admin/users', [UserAdminController::class, 'index'])->name('admin.users.index');
+Route::get('/admin/users/create', [UserAdminController::class, 'create'])->name('admin.users.create');
+Route::post('/admin/users/create', [UserAdminController::class, 'store'])->name('admin.users.store');
+Route::delete('/{user}', [UserAdminController::class, 'destroy'])->name('admin.users.destroy');
+
+Route::get('/admin/contacts', [ContactAdminController::class, 'index'])->name('admin.contacts.index');
+Route::delete('/{contact}', [ContactAdminController::class, 'destroy'])->name('admin.contacts.destroy');
 require __DIR__ . '/auth.php';

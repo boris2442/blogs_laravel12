@@ -21,7 +21,7 @@
     @stack('styles') --}}
 </head>
 
-<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col font-sans">
+<body class="antialiased bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100 min-h-screen flex flex-col font-sans">
 
     {{-- Header --}}
     @include('components.dashboard.navigation')

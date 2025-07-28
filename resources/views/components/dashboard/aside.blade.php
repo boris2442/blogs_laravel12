@@ -8,25 +8,18 @@
     <nav class="mt-6 px-4 space-y-2">
 
         <a 
-        {{-- href="{{ route('home.welcome') }}" --}}
+        href="/"
             class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-600 hover:text-white text-gray-700 dark:text-gray-200">
             <i class="fas fa-tachometer-alt mr-2"></i> Accueil
         </a>
-
-
         <a 
         {{-- href="{{ route('dashboard.project') }}" --}}
             class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-600 hover:text-white text-gray-700 dark:text-gray-200">
             <i class="fas fa-tachometer-alt mr-2"></i> Tableau de bord
         </a>
-        {{-- @auth --}}
-        {{-- @if (auth()->user()->role==='admin') --}}
-        {{-- @endif --}}
-        {{-- @endauth --}}
-        {{-- @auth --}}
-        {{-- @if (auth()->user()->role==='admin') --}}
+      
         <a
-         {{-- href="{{ route('students.index') }}" --}}
+         href="{{ route('admin.posts.index') }}"
             class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-600 hover:text-white text-gray-700 dark:text-gray-200">
             <i class="fas fa-user-graduate mr-2"></i> Posts
         </a>
@@ -34,14 +27,14 @@
         {{-- @auth --}}
         {{-- @if(auth()->user()->role==='admin') --}}
         <a 
-        {{-- href="{{ route('filieres.index') }}" --}}
+        href="{{ route('admin.users.index') }}"
             class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-600 hover:text-white text-gray-700 dark:text-gray-200">
-            <i class="fas fa-book mr-2"></i> Filières
+            <i class="fas fa-users mr-2"></i> utilisateurs
         </a>
         <a 
-        {{-- href="{{ route('niveaux.index') }}" --}}
+        href="{{ route('admin.contacts.index') }}"
             class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-600 hover:text-white text-gray-700 dark:text-gray-200">
-            <i class="fas fa-layer-group mr-2"></i> Niveaux
+            <i class="fas fa-layer-group mr-2"></i> Messages
         </a>
         <a
          {{-- href="{{ route('specialites.index') }}" --}}

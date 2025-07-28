@@ -1,12 +1,13 @@
 @extends('layouts.website.app')
 @section('title', 'Conditions d\'utilisation boris tech')
 @section('content')
-<section class="py-12 px-6 md:px-20 bg-white dark:bg-[#0F172A] text-[#1E2A38] dark:text-[#F4F4F5]">
+<section class="py-12 px-6 md:px-20 antialiased bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
     <div class="max-w-5xl mx-auto">
         <h1 class="text-3xl md:text-4xl font-bold mb-8 text-center">Conditions Générales d’Utilisation</h1>
 
         <p class="mb-6 italic text-sm text-gray-500 dark:text-gray-400 text-center">
-            Date de mise à jour : 27 juillet 2025
+            Date de mise à jour :  {{
+        \Carbon\Carbon::now()->subDay()->format('d F Y') }}
         </p>
 
         <div class="space-y-8 text-[16px] leading-relaxed">
