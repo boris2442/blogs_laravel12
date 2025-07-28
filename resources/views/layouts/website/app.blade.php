@@ -12,8 +12,8 @@
     @vite('resources/css/app.css') {{-- si tu utilises Vite --}}
     
     {{-- Scripts Livewire / Alpine --}}
-    @livewireStyles
-    @stack('styles')
+    {{-- @livewireStyles
+    @stack('styles') --}}
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col font-sans">
 

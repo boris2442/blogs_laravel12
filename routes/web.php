@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\LegalController;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -40,7 +41,7 @@ Route::get('/admin/posts/{post}', [AdminController::class, 'show'])->name('admin
 ;
 // });
 Route::get('/cgu', [LegalController::class, 'cgu'])->name('cgu');
-Route::get('/privacy', [LegalController::class, 'privacy'])->name('privacy');
+Route::get('/privacy', [LegalController::class, 'privacy'])->name('privacy.policy');
 Route::get('/about', [LegalController::class, 'about'])->name('about');
 Route::get('/contact', [LegalController::class, 'contact'])->name('contact');
 
