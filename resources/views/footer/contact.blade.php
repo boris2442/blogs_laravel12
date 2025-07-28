@@ -11,9 +11,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
 
         {{-- 📥 Formulaire de contact --}}
-        <form 
-        {{-- action="{{ route('contact.send') }}" --}}
-         method="POST"
+        <form action="{{ route('contact.store') }}" method="POST"
             class="space-y-6 bg-white dark:bg-[#2A3A4D] p-6 rounded-lg shadow-md">
             @csrf
             <div>

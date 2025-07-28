@@ -16,24 +16,11 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
-                {{-- @auth
-                @if(Auth::user()->role == 'admin')
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <a class='items-center justify-center flex dark:text-white'
-                        href="{{ route('admin.posts.index') }}">Gestion des posts</a>
-                </div>
-                @endif
-                @endauth --}}
-                {{-- {{ Auth::user()->role }} --}}
-                {{-- @auth --}}
-                {{-- <div>
-                    Connecté en tant que : {{ Auth::user()->role }}
+                {{-- <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <a href="{{ route('contact') }}"
+                        class='items-center justify-center flex dark:text-white'>Contact</a>
                 </div> --}}
-
-                {{-- @if(Auth::user()->role = 'admin') --}}
-                {{-- {{ Auth::user()->role ==='admin': 'vraie' ? 'faux'}} --}}
-
-              @if(auth()->user()->role->value === 'admin') 
+                @if(auth()->user()->role->value === 'admin')
 
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
@@ -43,7 +30,7 @@
                 {{-- @endif --}}
                 {{-- @endauth --}}
                 @endif
-               
+
 
 
             </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\LegalController;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -44,6 +45,9 @@ Route::get('/cgu', [LegalController::class, 'cgu'])->name('cgu');
 Route::get('/privacy', [LegalController::class, 'privacy'])->name('privacy.policy');
 Route::get('/about', [LegalController::class, 'about'])->name('about');
 Route::get('/contact', [LegalController::class, 'contact'])->name('contact');
+// Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
+Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
+// Route::post('/contact/send', [ContactController::class, 'store'])->name('contact
 
 // });
 require __DIR__ . '/auth.php';
