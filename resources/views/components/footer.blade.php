@@ -35,9 +35,9 @@
             <ul class="space-y-2">
                 <li><a href="{{ route('cgu') }}" class="hover:text-blue-500">Conditions d'utilisation</a></li>
                 <li><a href="{{ route('privacy') }}" class="hover:text-blue-500">Politique de confidentialité</a></li>
-                <li>
+                {{-- <li>
                     <a href="/plan-du-site" class="hover:text-blue-500">Plan du site</a>
-                </li>
+                </li> --}}
             </ul>
         </div>
 
@@ -55,7 +55,12 @@
     </div>
 
     <div
-        class="mt-10 border-t border-gray-300 dark:border-gray-700 pt-6 text-center text-xs text-gray-500 dark:text-gray-400">
-        &copy; {{ date('Y') }} BorisTech. Tous droits réservés.
+        class="mt-10 border-t border-gray-300 dark:border-gray-700 pt-6  text-xs text-gray-500 dark:text-gray-400 flex justify-between items-center">
+        <p>
+            Conçu avec <span class="text-red-500">&hearts;</span> par <a href="https://aubinsimo.evendeco.com"
+                class="text-blue-500 hover:underline">Aubin Boris Simo</a>
+            .</p>
+        <p class=""> &copy; {{ date('Y') }} BorisTech. Tous droits réservés.</p>
+
     </div>
 </footer>

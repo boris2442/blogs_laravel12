@@ -2,13 +2,15 @@
 @section('title', 'Contactez-nous')
 
 @section('content')
-<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12 bg-[#FAF9F6] dark:bg-[#1E2A38] text-[#111827] dark:text-[#F4F4F5] min-h-screen transition-colors duration-300 rounded-lg shadow-md">
+<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12 bg-[#FAF9F6] dark:bg-[#1E2A38] text-[#111827] dark:text-[#F4F4F5]  transition-colors duration-300 rounded-lg shadow-md">
 
     <h1 class="text-4xl font-bold mb-8 text-center">Contactez BorisTech</h1>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
         {{-- Formulaire de contact --}}
-        <form action="{{ route('contact.send') }}" method="POST" class="space-y-6">
+        <form 
+        {{-- action="{{ route('contact.send') }}" --}}
+         method="POST" class="space-y-6">
             @csrf
             <div>
                 <label for="name" class="block mb-1 font-semibold">Nom complet</label>
