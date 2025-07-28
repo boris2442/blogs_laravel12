@@ -12,11 +12,14 @@
         @yield('title')
 
     </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="antialiased pt-10 pb-16 md:pb-32  bg-[#FAF9F6] text-[#111827] dark:bg-[#1E2A38] dark:text-[#F4F4F5]">
+<body class="antialiased   bg-[#FAF9F6] text-[#111827] dark:bg-[#1E2A38] dark:text-[#F4F4F5]">
     {{-- Conteneur global --}}
     @yield('content')
 

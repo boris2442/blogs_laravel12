@@ -1,5 +1,3 @@
-
-
 <footer class="bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 py-12 px-6 mt-20">
     <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-sm">
 
@@ -7,14 +5,14 @@
         <div>
             <h3 class="font-semibold text-gray-900 dark:text-white mb-4">À propos</h3>
             <p class="leading-relaxed">
-                BorisTech est un blog dédié aux passionnés de technologie, de développement et d'innovation.
-                Rejoignez-nous pour explorer le monde du numérique.
+                Boris Tech – Vente de téléphones, ordinateurs & accessoires à Bafoussam et Yaoundé.
+                Blog tech, conseils pratiques & livraison rapide au Cameroun. 📱💻✨
             </p>
         </div>
 
         <!-- Navigation rapide -->
         <div>
-            <h3 class="font-semibold text-gray-900 dark:text-white mb-4">Navigation</h3>
+            <h3 class="font-semibold text-gray-900 dark:text-white mb-4">Pages</h3>
             <ul class="space-y-2">
                 <li><a href="/" class="hover:text-blue-500">Accueil</a></li>
                 <li><a href="{{ route('posts.index') }}" class="hover:text-blue-500">Articles</a></li>
@@ -28,7 +26,8 @@
             <h3 class="font-semibold text-gray-900 dark:text-white mb-4">Liens utiles</h3>
             <ul class="space-y-2">
                 <li><a href="{{ route('cgu') }}" class="hover:text-blue-500">Conditions d'utilisation</a></li>
-                <li><a href="{{ route('privacy.policy') }}" class="hover:text-blue-500">Politique de confidentialité</a></li>
+                <li><a href="{{ route('privacy.policy') }}" class="hover:text-blue-500">Politique de confidentialité</a>
+                </li>
                 {{-- <li>
                     <a href="/plan-du-site" class="hover:text-blue-500">Plan du site</a>
                 </li> --}}
@@ -39,11 +38,19 @@
         <div>
             <h3 class="font-semibold text-gray-900 dark:text-white mb-4">Suivez-nous</h3>
             <ul class="flex space-x-4">
-                <li><a href="https://facebook.com/boristech" target="_blank" class="hover:text-blue-600">Facebook</a>
+                <li>
+                    <a href="https://www.facebook.com/Boris%20Tech" target="_blank" rel="noopener noreferrer"
+                        class="hover:text-blue-600">
+                        <i class="fab fa-facebook"></i>
+                    </a>
                 </li>
-                <li><a href="https://twitter.com/boristech" target="_blank" class="hover:text-blue-400">Twitter</a></li>
-                <li><a href="https://linkedin.com/company/boristech" target="_blank"
-                        class="hover:text-blue-700">LinkedIn</a></li>
+                <li><a href="https://twitter.com/boristech" target="_blank" class="hover:text-blue-400">
+                        <i class="fab fa-twitter"></i></a></li>
+                <li>
+                    <a href="https://linkedin.com/company/boristech" target="_blank" class="hover:text-blue-700 ">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
