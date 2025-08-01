@@ -2,6 +2,9 @@
 @section('title', 'Contactez BorisTech')
 
 @section('content')
+@include('components.dashboard.header-user')
+
+{{-- Section de contact --}}
 <section
     class="mx-auto max-w-5xl px-6 py-16 antialiased bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 rounded-xl shadow-xl">
 

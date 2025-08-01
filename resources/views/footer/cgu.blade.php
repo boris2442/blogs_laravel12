@@ -1,6 +1,7 @@
 @extends('layouts.website.app')
 @section('title', 'Conditions d\'utilisation boris tech')
 @section('content')
+@include('components.dashboard.header-user')
 <section class="py-12 px-6 md:px-20 antialiased bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
     <div class="max-w-5xl mx-auto">
         <h1 class="text-3xl md:text-4xl font-bold mb-8 text-center">Conditions Générales d’Utilisation</h1>

@@ -38,7 +38,7 @@
             <h3 class="font-semibold text-gray-900 dark:text-white mb-4">Suivez-nous</h3>
             <ul class="flex space-x-4">
                 <li>
-                    <a href="https://www.facebook.com/Boris%20Tech" target="_blank" rel="noopener noreferrer"
+                    <a href="https://www.facebook.com/profile.php?id=61578805022791" target="_blank" rel="noopener noreferrer"
                         class="hover:text-blue-700 dark:hover:text-blue-500">
                         <i class="fab fa-facebook"></i>
                     </a>
